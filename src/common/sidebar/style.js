@@ -5,7 +5,6 @@ export const SidebarWrapper = styled.div`
   width: 12vw;
   height: 100vh;
   float: left;
-  line-height: 20px;
   background-color: rgba(64, 61, 61, 1);
   box-sizing:border-box;
   text-align: center;
@@ -21,20 +20,15 @@ export const SidebarWrapper = styled.div`
     border-bottom: 1px solid rgba(187, 187, 187, 1);
   }
   .tab {
-    text-decoration: none;
-    display: block;
     color: #403D3D;
     background: #fff;
     font-size: 14px;
-    text-align: center;
     font-family: Roboto;
     border: 1px solid rgba(187, 187, 187, 1);
     height: 46px;
     line-height: 46px;
   }
   .tab-active{
-    text-decoration: none;
-    display: block;
     color: #fff;
     font-size: 14px;
     text-align: center;
@@ -52,5 +46,6 @@ export const SidebarWrapper = styled.div`
   }
   .icon{
     font-size: 16px;
+    margin-right: 8px;
   }
 `

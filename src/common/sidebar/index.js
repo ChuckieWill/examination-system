@@ -3,6 +3,7 @@ import { SidebarWrapper } from './style';
 import { HomeOutlined, ProfileOutlined, LineChartOutlined, FileTextOutlined, TeamOutlined, UserOutlined, FormOutlined } from '@ant-design/icons';
 import { actionCreators } from './store';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class  Sidebar  extends Component {
   render() {
@@ -10,34 +11,56 @@ class  Sidebar  extends Component {
     return (
       <SidebarWrapper>
         <div className="side-title">在线考试系统</div>
-        <a className={ currentIndex === 0 ? 'tab' : ' tab-active'} 
-           href='/'
-           onClick={() => onChange(0)}>
-             <HomeOutlined className="icon" /> 首页</a>
-        <a className={ currentIndex === 1 ? 'tab' : ' tab-active'}  
-           href='/topic'
-           onClick={() => onChange(1)}>
-             <ProfileOutlined className="icon"/> 题目管理</a>
-        <a className={ currentIndex === 2 ? 'tab' : ' tab-active'} 
-           href='/'
-           onClick={() => onChange(2)}>
-             <FileTextOutlined className="icon"/> 试卷管理</a>
-        <a className={ currentIndex === 3 ? 'tab' : ' tab-active'} 
-           href='/'
-           onClick={() => onChange(3)}>
-             <FormOutlined className="icon"/> 考试管理</a>
-        <a className={ currentIndex === 4 ? 'tab' : ' tab-active'} 
-           href='/'
-           onClick={() => onChange(4)}>
-             <LineChartOutlined className="icon"/> 成绩管理</a>
-        <a className={ currentIndex === 5 ? 'tab' : 'tab-active'} 
-           href='/'
-           onClick={() => onChange(5)}>
-             <TeamOutlined className="icon"/> 用户列表</a>
-        <div className={ currentIndex === 6 ? 'tab exit' : 'exit tab-active'} 
-           href='/'
-           onClick={() => onChange(6)}>
-             <UserOutlined className="icon"/> 退出系统</div>
+        <Link to='/'>
+          <div className={ currentIndex === 0 ? 'tab' : ' tab-active'} 
+               onClick={() => onChange(0)}>
+            <HomeOutlined className="icon" /> 
+            首页
+          </div>
+        </Link>
+        <Link to='/topic'>
+          <div className={ currentIndex === 1 ? 'tab' : ' tab-active'} 
+               onClick={() => onChange(1)}>
+            <ProfileOutlined className="icon" /> 
+            题目管理
+          </div>
+        </Link>
+        <Link to='/topic'>
+          <div className={ currentIndex === 2 ? 'tab' : ' tab-active'} 
+               onClick={() => onChange(2)}>
+            <FileTextOutlined className="icon" /> 
+            试卷管理
+          </div>
+        </Link>
+        <Link to='/topic'>
+          <div className={ currentIndex === 3 ? 'tab' : ' tab-active'} 
+               onClick={() => onChange(3)}>
+            <FormOutlined className="icon" /> 
+            考试管理
+          </div>
+        </Link>
+        <Link to='/topic'>
+          <div className={ currentIndex === 4 ? 'tab' : ' tab-active'} 
+               onClick={() => onChange(4)}>
+            < LineChartOutlined className="icon" /> 
+            成绩管理
+          </div>
+        </Link>
+        <Link to='/topic'>
+          <div className={ currentIndex === 5 ? 'tab' : ' tab-active'} 
+               onClick={() => onChange(5)}>
+            <TeamOutlined className="icon" /> 
+            用户列表
+          </div>
+        </Link>
+        <Link to='/topic'>
+          <div className={ currentIndex === 6 ? 'tab exit' : 'exit tab-active'} 
+               onClick={() => onChange(6)}>
+            <UserOutlined className="icon" /> 
+            退出系统
+          </div>
+        </Link>
+        
       </SidebarWrapper>
     )
   }
@@ -45,7 +68,6 @@ class  Sidebar  extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state)
   return {
     currentIndex: state.getIn(['sidebar','currentIndex'])
   }
