@@ -10,6 +10,7 @@ export const SidebarWrapper = styled.div`
   text-align: center;
   border: 1px solid rgba(187, 187, 187, 1);
   position: relative;
+  text-decoration: none;
   .side-title {
     height: 90px;
     background: #fff;
@@ -20,6 +21,7 @@ export const SidebarWrapper = styled.div`
     border-bottom: 1px solid rgba(187, 187, 187, 1);
   }
   .tab {
+    text-decoration: none;
     color: #403D3D;
     background: #fff;
     font-size: 14px;
@@ -29,6 +31,7 @@ export const SidebarWrapper = styled.div`
     line-height: 46px;
   }
   .tab-active{
+    text-decoration: none;
     color: #fff;
     font-size: 14px;
     text-align: center;
