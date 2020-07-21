@@ -18,13 +18,15 @@ class  App  extends Component {
         <Provider store = {store}>  
           <BrowserRouter >
             <Switch>
+              <Route path="/" component={Login} exact />
               <Route  path="/login" component={Login}/>
-              <Route  path="/" render={ props => (
-                <Switch>
+              <Route  path="/admin" render={ props => (
+                <div>
                   <Sidebar/>
-                  <Route exact path="/" component={Home}/>
-                  <Route exact path="/topic" component={Topic}/>
-                </Switch>
+                  <Route exact path="/admin" component={Home}/>
+                  <Route exact path="/admin/topic" component={Topic}/>
+                </div>
+                  
               )}/>
             </Switch>
           </BrowserRouter>          

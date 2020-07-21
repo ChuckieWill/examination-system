@@ -4,7 +4,7 @@ import img from './images/img.png'
 
 export const LoginWrapper = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 700px;
   background: url(${img});
   background-size: cover;
   background-repeat:no-repeat;
