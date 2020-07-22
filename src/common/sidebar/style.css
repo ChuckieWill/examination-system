@@ -1,7 +1,8 @@
-import styled from 'styled-components'
+/* import styled from 'styled-components' */
 
 
-export const SidebarWrapper = styled.div`
+/* export const SidebarWrapper = styled.div` */
+.sidebar-wrapper{
   width: 12vw;
   height: 100vh;
   float: left;
@@ -11,8 +12,10 @@ export const SidebarWrapper = styled.div`
   border: 1px solid rgba(187, 187, 187, 1);
   position: relative;
   text-decoration: none;
+}
+  
   .side-title {
-    height: 90px;
+    height: 10vh;
     background: #fff;
     line-height: 90px;
     font-size: 18px;
@@ -21,7 +24,6 @@ export const SidebarWrapper = styled.div`
     border-bottom: 1px solid rgba(187, 187, 187, 1);
   }
   .tab {
-    text-decoration: none;
     color: #403D3D;
     background: #fff;
     font-size: 14px;
@@ -31,7 +33,6 @@ export const SidebarWrapper = styled.div`
     line-height: 46px;
   }
   .tab-active{
-    text-decoration: none;
     color: #fff;
     font-size: 14px;
     text-align: center;
@@ -51,4 +52,4 @@ export const SidebarWrapper = styled.div`
     font-size: 16px;
     margin-right: 8px;
   }
-`
+/* ` */

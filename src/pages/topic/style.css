@@ -1,0 +1,32 @@
+/* import styled from 'styled-components';*/
+
+/* export const TopicWrapper = styled.div` */
+.topic-wrapper{
+  width: 88vw;
+  height: 100vh;
+  background: url('../../images/back.png');
+  background-size: cover;
+  background-repeat:no-repeat;
+  float: right; 
+  /* width: 100%;  */
+}
+.topic-container{
+  background: #fff;
+  border-radius: 4px;
+  margin: 5px auto;
+  width: 99%;
+  height: 88vh;
+  box-sizing: border-box;
+  border: 1px solid rgba(187, 187, 187, 1);
+}
+
+.topic-serch-bar{
+  text-align: center;
+  height: 40px;
+  line-height: 100px;
+}
+.topic-serch-bar-item{
+  display: inline;
+  margin: 0 20px;
+}
+/* ` */

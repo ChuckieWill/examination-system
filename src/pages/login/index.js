@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { LoginWrapper } from './style';
+// import { LoginWrapper } from './style';
 import { Input, Button } from 'antd';
 import 'antd/dist/antd.css';
 import { UserOutlined, UnlockOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { actionCreators } from './store';
+import './style.css';
 
 
 class  Login  extends Component {   
@@ -24,14 +25,14 @@ class  Login  extends Component {
   }
   render() {
     return (
-      <LoginWrapper>
+      <div className="login-wrapper">
         <div className='login'>
           <div className='pannel'>
             <div className='title'>在线考试系统</div>
             <div className='change'>
-              <div className={this.state.currentTab ? 'tab tab-active' : 'tab '}
+              <div className={this.state.currentTab ? 'login-tab login-tab-active' : 'login-tab '}
                 onClick={this.changeTab}>登录</div>
-              <div className={!this.state.currentTab ? 'tab tab-active' : 'tab '}
+              <div className={!this.state.currentTab ? 'login-tab login-tab-active' : 'login-tab '}
                 onClick={this.changeTab}>注册</div>
             </div>
             {
@@ -40,7 +41,7 @@ class  Login  extends Component {
           </div>
         </div>
         
-      </LoginWrapper>
+      </div>
     )
   }
 

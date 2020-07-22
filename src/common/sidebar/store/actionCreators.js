@@ -1,7 +1,7 @@
 import {CHANGE_CURRENT} from './actionTypes'
 
-export const getChangeIndex = (index) => ({
+export const getChangeIndex = (path) => ({
   type: CHANGE_CURRENT,
-  index
+  path
 })
 

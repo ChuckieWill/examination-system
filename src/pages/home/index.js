@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Topbar from '../../common/topbar';
+// import {HomeWrapper} from './style';
+import './style.css';
 
 
 class  Home  extends Component {
@@ -7,21 +10,16 @@ class  Home  extends Component {
   //   super(props)
     
   // }
-  componentWillMount() {
-    console.log(this.props.status)
-    if(!this.props.status){
-      console.log('dddd')
-    }
-  }
-  componentDidMount(){
-    console.log(this.props.status)
-    if(!this.props.status){
-      console.log('dddd')
-    }
-  }
+
   render() {
+
     return (
-      <div>home111111111111111111111111111111111111111111111111111111111111</div>
+      <div className="home-wrapper">
+        <Topbar></Topbar>
+        <div className='home-container'>
+
+        </div>
+      </div>
       
     )
   }
