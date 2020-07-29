@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 // import { SidebarWrapper } from './style';
-import { HomeOutlined, ProfileOutlined, LineChartOutlined, FileTextOutlined, TeamOutlined, UserOutlined, FormOutlined } from '@ant-design/icons';
+import { HomeOutlined, ProfileOutlined, FileTextOutlined, TeamOutlined, UserOutlined, FormOutlined } from '@ant-design/icons';
 import { actionCreators } from './store';
+import { actionCreators as LoginCreators } from '../../pages/login/store';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import './style.css'
+import storage from '../../utils/storage';
+import './style.css';
 
 class  Sidebar  extends Component {
   // constructor(props){
@@ -12,7 +14,7 @@ class  Sidebar  extends Component {
   //   this.onExit = this.onExit.bind(this)
   // }
   render() {
-    const {currentPath, onChange} = this.props
+    const {currentPath, onChange, onExit} = this.props
     return (
       <div className='sidebar-wrapper'>
         <div className="side-title">在线考试系统</div>
@@ -23,32 +25,25 @@ class  Sidebar  extends Component {
             首页
           </div>
         </Link>
-        <Link to='/admin/topic'>
+        <Link to='/admin/topic/false'>
           <div className={ currentPath === '/admin/topic' ? 'tab' : ' tab-active'} 
                onClick={() => onChange('/admin/topic')}>
             <ProfileOutlined className="icon" /> 
             题目管理
           </div>
         </Link>
-        <Link to='/admin/paper'>
-          <div className={ currentPath === '/admin/paper' ? 'tab' : ' tab-active'} 
+        <Link to='/admin/paper/list'>
+          <div className={ currentPath.includes('/paper')  ? 'tab' : ' tab-active'} 
                onClick={() => onChange('/admin/paper')}>
             <FileTextOutlined className="icon" /> 
             试卷管理
           </div>
         </Link>
-        <Link to='/admin/exam'>
-          <div className={ currentPath === '/admin/exam' ? 'tab' : ' tab-active'} 
+        <Link to='/admin/exam/list'>
+          <div className={ currentPath.includes('/exam')  ? 'tab' : ' tab-active'} 
                onClick={() => onChange('/admin/exam')}>
             <FormOutlined className="icon" /> 
             考试管理
-          </div>
-        </Link>
-        <Link to='/admin/grade'>
-          <div className={ currentPath === '/admin/grade' ? 'tab' : ' tab-active'} 
-               onClick={() => onChange('/admin/grade')}>
-            < LineChartOutlined className="icon" /> 
-            成绩管理
           </div>
         </Link>
         <Link to='/admin/user'>
@@ -60,7 +55,7 @@ class  Sidebar  extends Component {
         </Link>
         <Link to='/login'>
           <div className={ currentPath === '/login' ? 'tab exit' : 'exit tab-active'} 
-                onClick={() => onChange('/login')}>
+                onClick={() => onExit()}>
             <UserOutlined className="icon" /> 
             退出系统
           </div>
@@ -95,6 +90,14 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onChange(path){
       dispatch(actionCreators.getChangeIndex(path))
+    },
+    onExit(){
+      storage.remove('userInfo')
+      dispatch(LoginCreators.getChangeUserData({
+        status: 'no',
+        token: '',
+        userId: 0
+      }))
     }
   }
 }

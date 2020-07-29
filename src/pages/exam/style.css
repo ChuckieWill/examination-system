@@ -1,18 +1,104 @@
 .exam-wrapper{
   width: 88vw;
-  height: 100vh;
-  background: url('../../images/back.png');
-  background-size: cover;
-  background-repeat:no-repeat;
   float: right; 
 }
-.exam-container{
+.exam-new-container{
+  background: rgba(0,0,0,0);
+  margin: 5px auto ;
+  width: 99%;
+}
+
+.exam-new-create-topic-list{
   background: #fff;
   border-radius: 4px;
-  margin: 5px auto;
-  width: 99%;
+  width: 78%;
   height: 88vh;
   box-sizing: border-box;
   border: 1px solid rgba(187, 187, 187, 1);
+  padding: 0 36px;
+  float: right;
+  position: relative;
+}
 
+.exam-new-create-pannel{
+  border: 1px solid rgba(187, 187, 187, 1);
+  background: #fff;
+  border-radius: 4px;
+  padding: 10px;
+  box-sizing: border-box;
+  width: 21%;
+  float: left;
+}
+
+.exam-new-topic-list-create{
+  position: absolute;
+  bottom: 70px;
+  left: 80px;
+}
+.exam-new-create-input-item{
+  margin: 15px 0;
+}
+.exam-new-list-search-pannel{
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.exam-new-list-item-input{
+  display: flex;
+  align-items: center;
+}
+
+.exam-new-list-item-input-title{
+  width: 120px;
+  font-size: 16px;
+}
+
+.exam-new-list-search-item{
+  margin-right: 80px;
+}
+
+.exam-new-topic-select{
+  height: 40px;
+  font-size: 18px;
+  font-family: SourceHanSansSC-regular;
+  text-align: center;
+  line-height: 40px;
+}
+
+.exam-new-create-input-item-label{
+  margin:  0 0 5px 5px;
+}
+
+.exam-new-create-input-item-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.exam-new-datepicker{
+  margin:  0 0 5px 0;
+}
+
+.exam-list-table{
+  margin-top: 20px;
+}
+
+.grade-exam{
+  height: 80px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.grade-exam-item{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.grade-exam-item-title{
+  margin: 0 0 8px 0;
 }

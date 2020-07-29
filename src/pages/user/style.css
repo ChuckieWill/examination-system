@@ -1,9 +1,13 @@
-.user-wrapper{
-  width: 88vw;
+.app-background{
+  width: 100vw;
   height: 100vh;
   background: url('../../images/back.png');
   background-size: cover;
   background-repeat:no-repeat;
+}
+
+.user-wrapper{
+  width: 88vw;
   float: right; 
 }
 .user-container{

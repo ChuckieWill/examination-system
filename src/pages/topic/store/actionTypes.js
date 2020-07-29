@@ -1,0 +1,1 @@
+export const SET_TOPIC_DATA = 'set_topic_data';

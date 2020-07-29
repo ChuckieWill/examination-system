@@ -6,6 +6,8 @@ import { UserOutlined, UnlockOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { actionCreators } from './store';
 import './style.css';
+// import axios from 'axios';
+
 
 
 class  Login  extends Component {   
@@ -26,14 +28,15 @@ class  Login  extends Component {
   render() {
     return (
       <div className="login-wrapper">
+        <div className='login-holder'></div>
         <div className='login'>
           <div className='pannel'>
             <div className='title'>在线考试系统</div>
             <div className='change'>
               <div className={this.state.currentTab ? 'login-tab login-tab-active' : 'login-tab '}
-                onClick={this.changeTab}>登录</div>
+                onClick={() => this.changeTab('登录')}>登录</div>
               <div className={!this.state.currentTab ? 'login-tab login-tab-active' : 'login-tab '}
-                onClick={this.changeTab}>注册</div>
+                onClick={() => this.changeTab("注册")}>注册</div>
             </div>
             {
               this.getLogin()
@@ -51,7 +54,6 @@ class  Login  extends Component {
       setTimeout(() => {
         this.props.history.push('/admin')
       },500)
-      
     }
   }
 
@@ -59,7 +61,6 @@ class  Login  extends Component {
 
   //控制登录、注册界面的切换
   getLogin(){
-    const { onSignIn } = this.props
     if(this.state.currentTab){
       return (
         <div >
@@ -79,7 +80,7 @@ class  Login  extends Component {
           <Button type="primary"  
             className='login-contan' 
             block
-            onClick={() => onSignIn(this.state.account, this.state.password)}>登录</Button>
+            onClick={() => this.onSignIn(this.state.account, this.state.password)}>登录</Button>
         </div>
       )
     }else{
@@ -134,19 +135,29 @@ class  Login  extends Component {
   
 
   //登录、注册切换
-  changeTab(){
-
+  changeTab(flag){
     this.setState(() => {
       return {
         password: '',
         account: '',
-        currentTab : !this.state.currentTab
+        currentTab: flag === '登录' ? true : false
       }
     })
   }
 
   //注册处理
   onRegister(account, password, conPassword){
+    //注册成功  跳转到首页
+    if(this.props.status){
+      setTimeout(() => {
+        this.props.history.push('/admin')
+      },500)
+    }
+    if(account === '' || password === ''){
+      alert('账户或密码为空')
+      return
+    }
+    //密码验证
     if(!(password === conPassword)){
       alert('两次密码输入不一致')
       this.setState(() => {
@@ -158,6 +169,21 @@ class  Login  extends Component {
     }else{
       this.props.onSignIn(account, password)
     }
+  }
+
+  //登录处理
+  onSignIn(account, password){
+    //登录成功  跳转到首页
+    if(this.props.status){
+      setTimeout(() => {
+        this.props.history.push('/admin')
+      },500)
+    }
+    if(account === '' || password === ''){
+      alert('账户或密码为空')
+      return
+    }
+    this.props.onSignIn(account, password)
   }
 }
 

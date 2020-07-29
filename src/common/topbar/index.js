@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import { TopbarWrapper } from './style';
 import { Button } from 'antd';
-import { PlusCircleOutlined, DeleteOutlined, FileDoneOutlined } from '@ant-design/icons';
+import { PlusCircleOutlined, DeleteOutlined, FileDoneOutlined, LeftCircleOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 import './style.css';
 
@@ -22,6 +22,7 @@ class  Topbar  extends Component {
     this.onAdd = this.onAdd.bind(this)
     this.onDel = this.onDel.bind(this)
     this.onSel = this.onSel.bind(this)
+    this.onBack = this.onBack.bind(this)
   }  
   render() {
     return (
@@ -29,6 +30,7 @@ class  Topbar  extends Component {
         {this.getAdd()}
         {this.getDel()}
         {this.getSel()}
+        {this.reBack()}
       </div>
     )
   }
@@ -77,6 +79,21 @@ class  Topbar  extends Component {
     }
   }
 
+  reBack(){
+    if(this.props.back){
+      return(
+        <Button  shape="round" 
+           type="primary" 
+           ghost
+          icon={<LeftCircleOutlined />} 
+          onClick={this.onBack}
+          className='button-item'>
+          {this.props.backContent}
+        </Button>
+      )
+    }
+  }
+
   //处理添加操作
   onAdd(){
     this.props.onAdd()
@@ -90,6 +107,11 @@ class  Topbar  extends Component {
   //处理选择操作
   onSel(){
     this.props.onSel()
+  }
+
+  //返回处理
+  onBack(){
+    this.props.onBack()
   }
 }
 
