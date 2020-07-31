@@ -1,1 +1,0 @@
-export const CHANGE_USER_DATA = 'change_user_data';
